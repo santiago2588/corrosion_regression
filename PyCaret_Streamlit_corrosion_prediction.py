@@ -77,7 +77,7 @@ Salinidad = st.sidebar.number_input(label = 'Salinidad_ppm', min_value = 0,
                           max_value = 100000 ,
                           value = 50000)
 
-CO2_frac = st.sidebar.slider(label = 'CO2_frac', min_value = 0.00,
+CO2_frac = st.sidebar.number_input(label = 'CO2_frac', min_value = 0.00,
                           max_value = 1.00 ,
                           value = 0.50)
                           
