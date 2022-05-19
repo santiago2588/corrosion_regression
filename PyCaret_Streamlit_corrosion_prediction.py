@@ -35,7 +35,7 @@ model = load_model('corrosion_regressor')
 
 
 st.title('Corrosion Prediction Web App')
-st.write('This is a web app to predict corrosion rates of oil wells based on         several features that you can see in the sidebar. Please adjust the         value of each feature. After that, click on the Predict button at the bottom to         see the prediction of the model.')
+st.write('This is a web app to predict corrosion rates of oil wells head based on         several features that you can see in the sidebar. Please adjust the         value of each feature. After that, click on the Predict button at the bottom to         see the prediction of the model.')
 
 
 # In[6]:
@@ -121,6 +121,16 @@ st.table(features_df)
 
 if st.button('Predict'):
     prediction = predict_corrosion(model, features_df)
-    prediction='Based on your input variables, the corrosion rate is '+str('%f' % prediction) + ' mpy'
+        if prediction < 1:
+        st.write("Corrosion risk: Low")
+    if prediction>=1 and prediction<5:
+        st.write("Corrosion risk: Moderate")
+    if prediction>=5 and prediction<10:
+       st.write("Corrosion risk: High")
+    if prediction >= 10:
+        st.write("Corrosion risk: Severe")
+        
+    prediction='Based on your input variables, the corrosion rate in the well head is '+str('%f' % prediction) + ' mpy'
     st.write(prediction)
+
 
