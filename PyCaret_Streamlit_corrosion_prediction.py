@@ -121,7 +121,7 @@ st.table(features_df)
 
 if st.button('Predict'):
     prediction = predict_corrosion(model, features_df)
-        if prediction < 1:
+    if prediction < 1:
         st.write("Corrosion risk: Low")
     if prediction>=1 and prediction<5:
         st.write("Corrosion risk: Moderate")
